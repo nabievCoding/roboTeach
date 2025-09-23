@@ -9,10 +9,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-orange: #FF6B35;
-            --dark-green: #2D5016;
-            --bright-yellow: #FFD23F;
-            --tile-blue: #4ECDC4;
+            --primary-red: #FF4757;        /* To'q qizil */
+            --electric-blue: #1E90FF;      /* Elektr ko'k */
+            --violet-purple: #8A2BE2;      /* Binafsha */
+            --hot-pink: #FF1493;           /* Issiq pushti */
+            --lime-green: #32CD32;         /* Yorqin yashil */
             --pure-white: #FFFFFF;
             --charcoal: #2C2C2C;
             --light-gray: #F8F9FA;
@@ -27,12 +28,12 @@
         .navbar-brand {
             font-weight: bold;
             font-size: 1.5rem;
-            color: var(--primary-orange) !important;
+            color: var(--primary-red) !important;
         }
 
         .coin-balance {
-            background: linear-gradient(45deg, var(--bright-yellow), #FFA000);
-            color: var(--charcoal);
+            background: linear-gradient(45deg, var(--hot-pink), #FF69B4);
+            color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
@@ -52,25 +53,25 @@
         }
 
         .task-card {
-            background: linear-gradient(135deg, var(--tile-blue), #26C6DA);
+            background: linear-gradient(135deg, var(--electric-blue), #4169E1);
             color: white;
             cursor: pointer;
         }
 
         .quiz-card {
-            background: linear-gradient(135deg, var(--primary-orange), #FF8A65);
+            background: linear-gradient(135deg, var(--hot-pink), #FF69B4);
             color: white;
             cursor: pointer;
         }
 
         .roadmap-card {
-            background: linear-gradient(135deg, var(--dark-green), #4CAF50);
+            background: linear-gradient(135deg, var(--lime-green), #00FF00);
             color: white;
             cursor: pointer;
         }
 
         .stats-card {
-            background: linear-gradient(135deg, #9C27B0, #BA68C8);
+            background: linear-gradient(135deg, var(--violet-purple), #9370DB);
             color: white;
             cursor: pointer;
         }
@@ -86,8 +87,8 @@
         }
 
         .level-badge {
-            background: linear-gradient(45deg, var(--bright-yellow), #FF6B35);
-            color: var(--charcoal);
+            background: linear-gradient(45deg, var(--primary-red), #FF0000);
+            color: white;
             padding: 5px 12px;
             border-radius: 15px;
             font-weight: bold;
@@ -110,19 +111,19 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            background: linear-gradient(135deg, var(--primary-orange), #FF8A65);
+            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
             color: white;
             transform: translateX(5px);
         }
 
         .task-item {
             background: var(--pure-white);
-            border-left: 4px solid var(--tile-blue);
+            border-left: 4px solid var(--electric-blue);
             transition: all 0.3s ease;
         }
 
         .task-item:hover {
-            border-left-color: var(--primary-orange);
+            border-left-color: var(--primary-red);
             transform: scale(1.02);
         }
 
@@ -151,7 +152,7 @@
         }
 
         .achievement-badge {
-            background: linear-gradient(45deg, #FFD700, #FFA000);
+            background: linear-gradient(45deg, var(--lime-green), #90EE90);
             color: var(--charcoal);
             padding: 5px 10px;
             border-radius: 20px;
@@ -169,20 +170,20 @@
         }
 
         .quiz-option:hover {
-            border-color: var(--primary-orange);
+            border-color: var(--primary-red);
             transform: scale(1.02);
         }
 
         .quiz-option.correct {
-            background: linear-gradient(135deg, #4CAF50, #81C784);
+            background: linear-gradient(135deg, var(--lime-green), #90EE90);
             color: white;
-            border-color: #2E7D32;
+            border-color: #008000;
         }
 
         .quiz-option.wrong {
-            background: linear-gradient(135deg, #F44336, #EF5350);
+            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
             color: white;
-            border-color: #C62828;
+            border-color: #CC0000;
         }
 
         .chart-container {
@@ -194,7 +195,7 @@
         }
 
         .btn-custom {
-            background: linear-gradient(45deg, var(--primary-orange), #FF8A65);
+            background: linear-gradient(45deg, var(--primary-red), #FF6B6B);
             border: none;
             color: white;
             padding: 10px 25px;
@@ -205,7 +206,7 @@
 
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 8px 15px rgba(255, 71, 87, 0.3);
             color: white;
         }
 
@@ -215,16 +216,16 @@
             border-radius: 15px;
             padding: 20px;
             margin: 15px 0;
-            border-left: 5px solid var(--tile-blue);
+            border-left: 5px solid var(--electric-blue);
         }
 
         .roadmap-item.completed {
-            border-left-color: var(--dark-green);
+            border-left-color: var(--lime-green);
             background: linear-gradient(135deg, #E8F5E8, #F1F8E9);
         }
 
         .roadmap-item.current {
-            border-left-color: var(--primary-orange);
+            border-left-color: var(--primary-red);
             background: linear-gradient(135deg, #FFF3E0, #FFECB3);
         }
         
@@ -233,7 +234,7 @@
             position: absolute;
             top: -5px;
             right: -5px;
-            background: #ff4757;
+            background: var(--primary-red);
             color: white;
             border-radius: 50%;
             width: 20px;
@@ -256,7 +257,7 @@
             border-radius: 50%;
             object-fit: cover;
             cursor: pointer;
-            border: 2px solid var(--primary-orange);
+            border: 2px solid var(--primary-red);
         }
         
         .dropdown-content {
@@ -280,7 +281,7 @@
         }
         
         .dropdown-content a:hover {
-            background: linear-gradient(135deg, var(--primary-orange), #FF8A65);
+            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
             color: white;
         }
         
@@ -344,7 +345,7 @@
         }
         
         input:checked + .slider {
-            background-color: var(--primary-orange);
+            background-color: var(--primary-red);
         }
         
         input:checked + .slider:before {
@@ -364,7 +365,7 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: var(--primary-orange);
+            background: var(--primary-red);
             color: white;
             display: flex;
             align-items: center;
@@ -384,7 +385,7 @@
             right: 20px;
             z-index: 9999;
             background: white;
-            border-left: 4px solid var(--primary-orange);
+            border-left: 4px solid var(--primary-red);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border-radius: 8px;
             padding: 15px;
@@ -402,7 +403,7 @@
         .notification-toast i {
             font-size: 1.5rem;
             margin-right: 15px;
-            color: var(--primary-orange);
+            color: var(--primary-red);
         }
         
         .search-container {
@@ -422,8 +423,8 @@
         .search-input:focus {
             width: 300px;
             outline: none;
-            border-color: var(--primary-orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
         }
         
         .search-icon {
@@ -460,6 +461,32 @@
                 margin-left: 0;
             }
         }
+
+        /* Yangi ranglar uchun qo'shimcha stillar */
+        .card-header.bg-primary { background: linear-gradient(135deg, var(--electric-blue), #4169E1) !important; }
+        .card-header.bg-success { background: linear-gradient(135deg, var(--lime-green), #00FF00) !important; }
+        .card-header.bg-info { background: linear-gradient(135deg, var(--hot-pink), #FF69B4) !important; }
+        .card-header.bg-warning { background: linear-gradient(135deg, var(--lime-green), #00FF00) !important; }
+        
+        .badge.bg-success { background-color: var(--lime-green) !important; }
+        .badge.bg-warning { background-color: var(--hot-pink) !important; }
+        .badge.bg-info { background-color: var(--electric-blue) !important; }
+        
+        .text-primary { color: var(--electric-blue) !important; }
+        .text-success { color: var(--lime-green) !important; }
+        .text-warning { color: var(--hot-pink) !important; }
+        .text-info { color: var(--violet-purple) !important; }
+        .text-danger { color: var(--primary-red) !important; }
+        
+        .text-warning { color: var(--hot-pink) !important; }
+        .fa-hand-wave { color: var(--hot-pink) !important; }
+        .fa-fire { color: var(--primary-red) !important; }
+        .fa-trophy { color: var(--lime-green) !important; }
+        .fa-brain { color: var(--violet-purple) !important; }
+        .fa-map-marked-alt { color: var(--lime-green) !important; }
+        .fa-chart-line { color: var(--electric-blue) !important; }
+        .fa-store { color: var(--hot-pink) !important; }
+        .fa-users { color: var(--violet-purple) !important; }
     </style>
 </head>
 <body>
@@ -487,7 +514,7 @@
                 </label>
                 
                 <div class="profile-dropdown">
-                    <img src="https://ui-avatars.com/api/?name=Aziz+Bek&background=FF6B35&color=fff" alt="Profile" class="profile-img">
+                    <img src="https://ui-avatars.com/api/?name=Aziz+Bek&background=FF4757&color=fff" alt="Profile" class="profile-img">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="#"><i class="fas fa-user me-2"></i> Profil</a>
                         <a href="#"><i class="fas fa-cog me-2"></i> Sozlamalar</a>
@@ -500,7 +527,9 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-3">
+    <!-- Qolgan HTML kodlari o'zgarmaydi -->
+    <!-- ... -->
+ <div class="container-fluid mt-3">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-lg-2 col-md-3">
