@@ -9,317 +9,314 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #FF4757;        /* To'q qizil */
-            --electric-blue: #1E90FF;      /* Elektr ko'k */
-            --violet-purple: #8A2BE2;      /* Binafsha */
-            --hot-pink: #FF1493;           /* Issiq pushti */
-            --lime-green: #32CD32;         /* Yorqin yashil */
-            --pure-white: #FFFFFF;
-            --charcoal: #2C2C2C;
-            --light-gray: #F8F9FA;
+            --dark-blue: #1e3a8a;        /* To'q ko'k */
+            --forest-green: #166534;     /* To'q yashil */
+            --deep-red: #dc2626;         /* To'q qizil */
+            --dark-pink: #be185d;        /* To'q pushti */
+            --pure-white: #ffffff;
+            --light-gray: #ebf0f5;
+            --dark-gray: #1f2937;
+            --border-gray: #e5e7eb;
+            --txt-color:#fff;
+            --txt-color-test:#222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, var(--light-gray) 0%, #E3F2FD 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+            background: var(--light-gray);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            padding-bottom: 10px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--pure-white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
         }
 
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-red) !important;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--dark-blue) !important;
         }
 
         .coin-balance {
-            background: linear-gradient(45deg, var(--hot-pink), #FF69B4);
+            background: var(--forest-green);
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .task-card {
-            background: linear-gradient(135deg, var(--electric-blue), #4169E1);
-            color: white;
-            cursor: pointer;
-        }
-
-        .quiz-card {
-            background: linear-gradient(135deg, var(--hot-pink), #FF69B4);
-            color: white;
-            cursor: pointer;
-        }
-
-        .roadmap-card {
-            background: linear-gradient(135deg, var(--lime-green), #00FF00);
-            color: white;
-            cursor: pointer;
-        }
-
-        .stats-card {
-            background: linear-gradient(135deg, var(--violet-purple), #9370DB);
-            color: white;
-            cursor: pointer;
-        }
-
-        .progress-ring {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-        }
-
-        .progress-ring circle {
-            transition: stroke-dasharray 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.875rem;
         }
 
         .level-badge {
-            background: linear-gradient(45deg, var(--primary-red), #FF0000);
+            background: var(--deep-red);
             color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.875rem;
         }
 
+        /* Cards */
+        .card {
+            background: var(--pure-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            box-shadow: none;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--dark-blue);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar */
         .sidebar {
             background: var(--pure-white);
-            min-height: calc(100vh - 76px);
-            border-radius: 15px 0 0 15px;
-            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 1rem;
         }
 
         .nav-link {
-            color: var(--charcoal);
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin: 5px 0;
-            transition: all 0.3s ease;
+            color: var(--dark-gray);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            font-weight: 500;
         }
 
-        .nav-link:hover, .nav-link.active {
-            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
+        .nav-link:hover {
+            background: var(--light-gray);
+            color: var(--dark-blue);
+        }
+
+        .nav-link.active {
+            background: var(--dark-blue);
             color: white;
-            transform: translateX(5px);
         }
 
+        .nav-link i {
+            width: 20px;
+            margin-right: 0.75rem;
+        }
+
+        /* Main dashboard cards */
+        .dashboard-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-blue { border-left: 4px solid var(--dark-blue); }
+        .card-green { border-left: 4px solid var(--forest-green); }
+        .card-red { border-left: 4px solid var(--deep-red); }
+        .card-pink { border-left: 4px solid var(--dark-pink); }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--dark-blue);
+            border: 1px solid var(--dark-blue);
+            border-radius: 6px;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+            border-color: #1e40af;
+        }
+
+        .btn-success {
+            background: var(--forest-green);
+            border: 1px solid var(--forest-green);
+        }
+
+        .btn-success:hover {
+            background: #15803d;
+            border-color: #15803d;
+        }
+
+        .btn-danger {
+            background: var(--deep-red);
+            border: 1px solid var(--deep-red);
+        }
+
+        .btn-danger:hover {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        /* Task items */
         .task-item {
             background: var(--pure-white);
-            border-left: 4px solid var(--electric-blue);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
         }
 
         .task-item:hover {
-            border-left-color: var(--primary-red);
-            transform: scale(1.02);
+            border-color: var(--dark-blue);
         }
 
-        .coin-animation {
-            animation: bounce 2s infinite;
+        /* Badges */
+        .badge {
+            font-weight: 500;
+            padding: 0.35rem 0.65rem;
+            border-radius: 4px;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+        .badge.bg-success { background-color: var(--forest-green) !important; }
+        .badge.bg-primary { background-color: var(--dark-blue) !important; }
+        .badge.bg-danger { background-color: var(--deep-red) !important; }
+        .badge.bg-warning { background-color: var(--dark-pink) !important; }
+
+        /* Progress bars */
+        .progress {
+            background-color: var(--light-gray);
+            border-radius: 4px;
         }
 
-        .page-section {
-            display: none;
+        .progress-bar {
+            border-radius: 4px;
         }
 
-        .page-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
+        .bg-success { background-color: var(--forest-green) !important; }
+        .bg-primary { background-color: var(--dark-blue) !important; }
+        .bg-danger { background-color: var(--deep-red) !important; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .achievement-badge {
-            background: linear-gradient(45deg, var(--lime-green), #90EE90);
-            color: var(--charcoal);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
+        /* Quiz options */
         .quiz-option {
-            background: var(--light-gray);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 15px;
+            background: var(--text-color-test-var);
+            border: 2px solid var(--border-gray);
+            border-radius: 6px;
+            padding: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .quiz-option:hover {
-            border-color: var(--primary-red);
-            transform: scale(1.02);
+            border-color: var(--dark-blue);
         }
 
         .quiz-option.correct {
-            background: linear-gradient(135deg, var(--lime-green), #90EE90);
+            background: var(--forest-green);
             color: white;
-            border-color: #008000;
+            border-color: var(--forest-green);
         }
 
         .quiz-option.wrong {
-            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
+            background: var(--deep-red);
             color: white;
-            border-color: #CC0000;
+            border-color: var(--deep-red);
         }
 
-        .chart-container {
-            position: relative;
-            height: 300px;
-            background: var(--pure-white);
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .btn-custom {
-            background: linear-gradient(45deg, var(--primary-red), #FF6B6B);
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(255, 71, 87, 0.3);
-            color: white;
-        }
-
+        /* Roadmap */
         .roadmap-item {
-            position: relative;
             background: var(--pure-white);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 5px solid var(--electric-blue);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
         }
 
         .roadmap-item.completed {
-            border-left-color: var(--lime-green);
-            background: linear-gradient(135deg, #E8F5E8, #F1F8E9);
+            border-left: 4px solid var(--forest-green);
+            background: #f0fdf4;
         }
 
         .roadmap-item.current {
-            border-left-color: var(--primary-red);
-            background: linear-gradient(135deg, #FFF3E0, #FFECB3);
+            border-left: 4px solid var(--deep-red);
+            background: #fef2f2;
         }
-        
-        /* YANGI STILLAR */
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--primary-red);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-        }
-        
+
+        /* Text colors */
+        .text-primary { color: var(--dark-blue) !important; }
+        .text-success { color: var(--forest-green) !important; }
+        .text-danger { color: var(--deep-red) !important; }
+        .text-warning { color: var(--dark-pink) !important; }
+        .text-muted{color:var(--txt-color) !important}
+        .text-muted-test{color:var(--txt-color-test) }
+        .text-muted-test-variant{background-color: (--text-color-test-var)}
+
+        /* Profile dropdown */
         .profile-dropdown {
             position: relative;
             display: inline-block;
-            margin-left: 15px;
+            margin-left: 1rem;
         }
-        
+
         .profile-img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            object-fit: cover;
             cursor: pointer;
-            border: 2px solid var(--primary-red);
+            border: 2px solid var(--dark-blue);
         }
-        
+
         .dropdown-content {
             display: none;
             position: absolute;
             right: 0;
             background-color: white;
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            z-index: 1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            z-index: 1000;
             overflow: hidden;
         }
-        
+
         .dropdown-content a {
-            color: var(--charcoal);
-            padding: 12px 16px;
+            color: var(--dark-gray);
+            padding: 0.75rem 1rem;
             text-decoration: none;
             display: block;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
-        
+
         .dropdown-content a:hover {
-            background: linear-gradient(135deg, var(--primary-red), #FF6B6B);
-            color: white;
+            background: var(--light-gray);
+            color: var(--dark-blue);
         }
-        
+
         .show { display: block; }
-        
-        .dark-mode {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-        }
-        
-        .dark-mode .card {
-            background-color: #1e2a47;
-            color: white;
-        }
-        
-        .dark-mode .sidebar {
-            background-color: #1e2a47;
-            color: white;
-        }
-        
-        .dark-mode .nav-link {
-            color: white;
-        }
-        
+
+        /* Theme toggle */
         .theme-switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 34px;
-            margin-left: 15px;
+            width: 50px;
+            height: 24px;
+            margin-left: 1rem;
         }
-        
-        .theme-switch input { 
+
+        .theme-switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -327,198 +324,162 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
+            background-color: var(--border-gray);
+            transition: .3s;
+            border-radius: 24px;
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
             background-color: white;
-            transition: .4s;
+            transition: .3s;
             border-radius: 50%;
         }
-        
+
         input:checked + .slider {
-            background-color: var(--primary-red);
+            background-color: var(--dark-blue);
         }
-        
+
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-        
+
+        /* Page transitions */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Notification badge */
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--deep-red);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        /* Leaderboard */
         .leaderboard-item {
             display: flex;
             align-items: center;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            background-color: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            background-color: var(--light-gray);
         }
-        
+
         .leaderboard-rank {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: var(--primary-red);
+            background: var(--dark-blue);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
+            margin-right: 1rem;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
-        
-        .modal-content {
-            border-radius: 15px;
-            border: none;
-        }
-        
-        .notification-toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: white;
-            border-left: 4px solid var(--primary-red);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            max-width: 350px;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-        }
-        
-        .notification-toast.show {
-            transform: translateX(0);
-        }
-        
-        .notification-toast i {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: var(--primary-red);
-        }
-        
-        .search-container {
-            position: relative;
-            margin-right: 15px;
-        }
-        
-        .search-input {
-            border-radius: 20px;
-            padding: 8px 15px;
-            padding-left: 40px;
-            border: 1px solid #ddd;
-            width: 250px;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            width: 300px;
-            outline: none;
-            border-color: var(--primary-red);
-            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-        }
-        
-        /* Responsive design improvements */
-        @media (max-width: 992px) {
-            .sidebar {
-                min-height: auto;
-                border-radius: 15px;
-                margin-bottom: 20px;
-            }
-            
-            .search-input {
-                width: 200px;
-            }
-            
-            .search-input:focus {
-                width: 250px;
-            }
-        }
-        
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .search-container {
-                display: none;
+            .sidebar {
+                margin-bottom: 1rem;
             }
             
-            .theme-switch {
-                margin-left: 0;
+            .coin-balance, .level-badge {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
             }
         }
 
-        /* Yangi ranglar uchun qo'shimcha stillar */
-        .card-header.bg-primary { background: linear-gradient(135deg, var(--electric-blue), #4169E1) !important; }
-        .card-header.bg-success { background: linear-gradient(135deg, var(--lime-green), #00FF00) !important; }
-        .card-header.bg-info { background: linear-gradient(135deg, var(--hot-pink), #FF69B4) !important; }
-        .card-header.bg-warning { background: linear-gradient(135deg, var(--lime-green), #00FF00) !important; }
-        
-        .badge.bg-success { background-color: var(--lime-green) !important; }
-        .badge.bg-warning { background-color: var(--hot-pink) !important; }
-        .badge.bg-info { background-color: var(--electric-blue) !important; }
-        
-        .text-primary { color: var(--electric-blue) !important; }
-        .text-success { color: var(--lime-green) !important; }
-        .text-warning { color: var(--hot-pink) !important; }
-        .text-info { color: var(--violet-purple) !important; }
-        .text-danger { color: var(--primary-red) !important; }
-        
-        .text-warning { color: var(--hot-pink) !important; }
-        .fa-hand-wave { color: var(--hot-pink) !important; }
-        .fa-fire { color: var(--primary-red) !important; }
-        .fa-trophy { color: var(--lime-green) !important; }
-        .fa-brain { color: var(--violet-purple) !important; }
-        .fa-map-marked-alt { color: var(--lime-green) !important; }
-        .fa-chart-line { color: var(--electric-blue) !important; }
-        .fa-store { color: var(--hot-pink) !important; }
-        .fa-users { color: var(--violet-purple) !important; }
+        /* Dark mode */
+        .dark-mode {
+            background: var(--dark-gray);
+            color: var(--pure-white);
+        }
+
+        .dark-mode .card {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: var(--pure-white);
+        }
+
+        .dark-mode .sidebar {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+
+        .dark-mode .nav-link {
+            color: var(--pure-white);
+        }
+
+        .dark-mode .nav-link:hover {
+            background: #4b5563;
+            color: var(--pure-white);
+        }
+
+        .dark-mode .task-item {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+
+        .dark-mode .leaderboard-item {
+            background-color: #4b5563;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-robot me-2"></i>RoboKids</a>
-            
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Qidirish...">
-            </div>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>USTOZJON
+            </a>
             
             <div class="d-flex align-items-center">
                 <div class="coin-balance me-3">
-                    <i class="fas fa-coins coin-animation"></i> <span id="coinBalance">1250</span> Coinlar
+                    <i class="fas fa-coins me-1"></i> <span id="coinBalance">1250</span> Coinlar
                 </div>
-                <div class="level-badge">
-                    <i class="fas fa-star"></i> Daraja 5
+                <div class="level-badge me-3">
+                    <i class="fas fa-star me-1"></i> Daraja 5
                 </div>
                 
-                <label class="theme-switch ms-3" for="theme-toggle">
+                <label class="theme-switch" for="theme-toggle">
                     <input type="checkbox" id="theme-toggle">
                     <span class="slider"></span>
                 </label>
                 
                 <div class="profile-dropdown">
-                    <img src="https://ui-avatars.com/api/?name=Aziz+Bek&background=FF4757&color=fff" alt="Profile" class="profile-img">
+                    <img src="https://ui-avatars.com/api/?name=Aziz+Bek&background=1e3a8a&color=fff" alt="Profile" class="profile-img">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="#"><i class="fas fa-user me-2"></i> Profil</a>
                         <a href="#"><i class="fas fa-cog me-2"></i> Sozlamalar</a>
-                        <a href="#"><i class="fas fa-bell me-2"></i> Bildirishnomalar <span class="notification-badge">3</span></a>
+                        <a href="#" style="position: relative;"><i class="fas fa-bell me-2"></i> Bildirishnomalar <span class="notification-badge">3</span></a>
                         <a href="#"><i class="fas fa-trophy me-2"></i> Yutuqlar</a>
                         <a href="#"><i class="fas fa-sign-out-alt me-2"></i> Chiqish</a>
                     </div>
@@ -527,38 +488,36 @@
         </div>
     </nav>
 
-    <!-- Qolgan HTML kodlari o'zgarmaydi -->
-    <!-- ... -->
- <div class="container-fluid mt-3">
+    <div class="container-fluid mt-4">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-lg-2 col-md-3">
-                <div class="sidebar p-3">
+                <div class="sidebar">
                     <nav class="nav flex-column">
                         <a class="nav-link active" href="#" data-page="dashboard">
-                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
-                        <a class="nav-link" href="#" data-page="tasks">
-                            <i class="fas fa-tasks me-2"></i>Topshiriqlar
+                        <a class="nav-link" href="#" data-page="tasks" style="position: relative;">
+                            <i class="fas fa-tasks"></i>Topshiriqlar
                             <span class="notification-badge">3</span>
                         </a>
                         <a class="nav-link" href="#" data-page="quiz">
-                            <i class="fas fa-brain me-2"></i>Testlar
+                            <i class="fas fa-brain"></i>Testlar
                         </a>
                         <a class="nav-link" href="#" data-page="roadmap">
-                            <i class="fas fa-map-marked-alt me-2"></i>Yo'l Xaritasi
+                            <i class="fas fa-map-marked-alt"></i>Yo'l Xaritasi
                         </a>
                         <a class="nav-link" href="#" data-page="statistics">
-                            <i class="fas fa-chart-line me-2"></i>Statistika
+                            <i class="fas fa-chart-line"></i>Statistika
                         </a>
                         <a class="nav-link" href="#" data-page="shop">
-                            <i class="fas fa-store me-2"></i>Do'kon
+                            <i class="fas fa-store"></i>Do'kon
                         </a>
                         <a class="nav-link" href="#" data-page="leaderboard">
-                            <i class="fas fa-trophy me-2"></i>Reyting
+                            <i class="fas fa-trophy"></i>Reyting
                         </a>
                         <a class="nav-link" href="#" data-page="community">
-                            <i class="fas fa-users me-2"></i>Jamiyat
+                            <i class="fas fa-users"></i>Jamiyat
                         </a>
                     </nav>
                 </div>
@@ -568,121 +527,127 @@
             <div class="col-lg-10 col-md-9">
                 <!-- Dashboard Section -->
                 <div id="dashboard" class="page-section active">
-                    <!-- Dashboard content remains the same as your original code -->
-                    <div class="row mb-4">
+                    <div class="row ">
                         <div class="col-12">
-                            <h2 class="mb-4">Salom, Aziz! <i class="fas fa-hand-wave text-warning"></i></h2>
+                            <h2 >Salom, Aziz!</h2>
                         </div>
                     </div>
 
-                    <div class="row g-4">
+                    <div class="row g-4 mb-4">
                         <div class="col-lg-3 col-md-6">
-                            <div class="card task-card h-100" data-page="tasks">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-clipboard-list fa-3x mb-3"></i>
-                                    <h5>Kunlik Topshiriqlar</h5>
-                                    <p>Bugun 3 ta vazifa kutmoqda</p>
-                                    <div class="progress-ring">
-                                        <svg width="100" height="100">
-                                            <circle cx="50" cy="50" r="40" stroke="#ffffff40" stroke-width="8" fill="none"/>
-                                            <circle cx="50" cy="50" r="40" stroke="#ffffff" stroke-width="8" fill="none"
-                                                stroke-dasharray="251" stroke-dashoffset="167" stroke-linecap="round"/>
-                                        </svg>
-                                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">33%</div>
+                            <div class="card dashboard-card card-blue h-100" data-page="tasks">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-clipboard-list fa-2x text-primary me-3"></i>
+                                        <div>
+                                            <h6 class="mb-0">Kunlik Topshiriqlar</h6>
+                                            <small class="text-muted" >3 ta vazifa kutmoqda</small>
+                                        </div>
                                     </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" style="width: 33%"></div>
+                                    </div>
+                                    <small class="text-muted mt-2 d-block">33% bajarilgan</small>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="card quiz-card h-100" data-page="quiz">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-question-circle fa-3x mb-3"></i>
-                                    <h5>AI Testlar</h5>
-                                    <p>Bilimingizni sinab ko'ring</p>
-                                    <div class="mt-3">
-                                        <span class="achievement-badge">5 ta test yakunlandi</span>
+                            <div class="card dashboard-card card-green h-100" data-page="quiz">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-question-circle fa-2x text-success me-3"></i>
+                                        <div>
+                                            <h6 class="mb-0">AI Testlar</h6>
+                                            <small class="text-muted">Bilimingizni sinab ko'ring</small>
+                                        </div>
                                     </div>
+                                    <span class="badge bg-success">5 ta test yakunlandi</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="card roadmap-card h-100" data-page="roadmap">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-route fa-3x mb-3"></i>
-                                    <h5>O'quv Yo'li</h5>
-                                    <p>Maqsadlaringizga erishing</p>
-                                    <div class="mt-3">
-                                        <span class="achievement-badge">8/15 bosqich</span>
+                            <div class="card dashboard-card card-red h-100" data-page="roadmap">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-route fa-2x text-danger me-3"></i>
+                                        <div>
+                                            <h6 class="mb-0">O'quv Yo'li</h6>
+                                            <small class="text-muted">Maqsadlaringizga erishing</small>
+                                        </div>
                                     </div>
+                                    <span class="badge bg-danger">8/15 bosqich</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="card stats-card h-100" data-page="statistics">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-chart-bar fa-3x mb-3"></i>
-                                    <h5>Statistika</h5>
-                                    <p>O'sish dinamikangiz</p>
-                                    <div class="mt-3">
-                                        <span class="achievement-badge">+15% bu hafta</span>
+                            <div class="card dashboard-card card-pink h-100" data-page="statistics">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-chart-bar fa-2x text-warning me-3"></i>
+                                        <div>
+                                            <h6 class="mb-0">Statistika</h6>
+                                            <small class="text-muted">O'sish dinamikangiz</small>
+                                        </div>
                                     </div>
+                                    <span class="badge bg-warning">+15% bu hafta</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Today's Highlights -->
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <h4 class="mb-3">Bugungi Yangiliklar</h4>
-                        </div>
+                    <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Eng So'nggi Topshiriqlar</h5>
+                                </div>
                                 <div class="card-body">
-                                    <h5><i class="fas fa-fire text-warning me-2"></i>Eng So'nggi Topshiriqlar</h5>
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
-                                            <div class="task-item p-3 rounded">
+                                            <div class="task-item">
                                                 <h6>Robot Harakatlanishi</h6>
-                                                <p class="text-muted small">Arduino bilan motor boshqarish</p>
+                                                <p class="text-muted small mb-2">Arduino bilan motor boshqarish</p>
                                                 <span class="badge bg-success">+50 coin</span>
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                            <div class="task-item p-3 rounded">
+                                            <div class="task-item">
                                                 <h6>AI Algoritmlari</h6>
-                                                <p class="text-muted small">Mashina o'rganishi asoslari</p>
+                                                <p class="text-muted small mb-2">Mashina o'rganishi asoslari</p>
                                                 <span class="badge bg-warning">+75 coin</span>
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                            <div class="task-item p-3 rounded">
+                                            <div class="task-item">
                                                 <h6>Sensor Ma'lumotlari</h6>
-                                                <p class="text-muted small">Ma'lumotlarni o'qish va tahlil</p>
-                                                <span class="badge bg-info">+60 coin</span>
+                                                <p class="text-muted small mb-2">Ma'lumotlarni o'qish va tahlil</p>
+                                                <span class="badge bg-primary">+60 coin</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style=" margin-top: 10px;">
                             <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Yutuqlar</h5>
+                                </div>
                                 <div class="card-body">
-                                    <h5><i class="fas fa-trophy text-warning me-2"></i>Yutuqlar</h5>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-medal text-warning me-2"></i>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-medal text-warning me-3"></i>
                                         <span>Birinchi Robot</span>
                                     </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-brain text-info me-2"></i>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-brain text-primary me-3"></i>
                                         <span>AI Ustasi</span>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-code text-success me-2"></i>
+                                        <i class="fas fa-code text-success me-3"></i>
                                         <span>Kod Yozuvchi</span>
                                     </div>
                                 </div>
@@ -693,45 +658,44 @@
 
                 <!-- Tasks Section -->
                 <div id="tasks" class="page-section">
-                    <!-- Tasks content remains the same as your original code -->
-                    <h2 class="mb-4">Kunlik Topshiriqlar <i class="fas fa-tasks text-primary"></i></h2>
-                    <div class="row g-4">
+                    <h2 class="mb-4">Kunlik Topshiriqlar</h2>
+                    <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
-                                <div class="card-header bg-primary text-white">
+                                <div class="card-header">
                                     <h5 class="mb-0">Bugungi Vazifalar</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="task-item p-3 mb-3 rounded d-flex justify-content-between align-items-center">
+                                    <div class="task-item d-flex justify-content-between align-items-center">
                                         <div>
                                             <h6>Arduino LED Boshqarish</h6>
-                                            <p class="text-muted mb-0">LEDni yoqish va o'chirish kodini yozing</p>
+                                            <p class="text-muted mb-0 small">LEDni yoqish va o'chirish kodini yozing</p>
                                         </div>
                                         <div>
                                             <span class="badge bg-success me-2">+50 coin</span>
-                                            <button class="btn btn-sm btn-custom" onclick="startTask(1)">Boshlash</button>
+                                            <button class="btn btn-primary btn-sm" onclick="startTask(1)">Boshlash</button>
                                         </div>
                                     </div>
                                     
-                                    <div class="task-item p-3 mb-3 rounded d-flex justify-content-between align-items-center">
+                                    <div class="task-item d-flex justify-content-between align-items-center">
                                         <div>
                                             <h6>Sensor Ma'lumotini O'qish</h6>
-                                            <p class="text-muted mb-0">Ultrasonic sensor bilan masofani o'lchash</p>
+                                            <p class="text-muted mb-0 small">Ultrasonic sensor bilan masofani o'lchash</p>
                                         </div>
                                         <div>
                                             <span class="badge bg-warning me-2">+75 coin</span>
-                                            <button class="btn btn-sm btn-custom" onclick="startTask(2)">Boshlash</button>
+                                            <button class="btn btn-primary btn-sm" onclick="startTask(2)">Boshlash</button>
                                         </div>
                                     </div>
                                     
-                                    <div class="task-item p-3 mb-3 rounded d-flex justify-content-between align-items-center">
+                                    <div class="task-item d-flex justify-content-between align-items-center">
                                         <div>
                                             <h6>AI Tasvir Aniqlash</h6>
-                                            <p class="text-muted mb-0">Python bilan obyektlarni aniqlash</p>
+                                            <p class="text-muted mb-0 small">Python bilan obyektlarni aniqlash</p>
                                         </div>
                                         <div>
-                                            <span class="badge bg-info me-2">+100 coin</span>
-                                            <button class="btn btn-sm btn-custom" onclick="startTask(3)">Boshlash</button>
+                                            <span class="badge bg-primary me-2">+100 coin</span>
+                                            <button class="btn btn-primary btn-sm" onclick="startTask(3)">Boshlash</button>
                                         </div>
                                     </div>
                                 </div>
@@ -740,19 +704,19 @@
                         
                         <div class="col-lg-4">
                             <div class="card">
-                                <div class="card-header bg-success text-white">
+                                <div class="card-header">
                                     <h5 class="mb-0">Haftalik Challenge</h5>
                                 </div>
                                 <div class="card-body text-center">
                                     <i class="fas fa-robot fa-4x text-success mb-3"></i>
                                     <h6>Robot Futbol O'yinchisi</h6>
-                                    <p>Robotni pul bilan harakat qildiring va gol uring!</p>
+                                    <p class="small">Robotni pul bilan harakat qildiring va gol uring!</p>
                                     <div class="progress mb-3">
                                         <div class="progress-bar bg-success" style="width: 60%">60%</div>
                                     </div>
                                     <span class="badge bg-success mb-3">+500 coin mukofot</span>
                                     <br>
-                                    <button class="btn btn-custom">Davom etish</button>
+                                    <button class="btn btn-success btn-sm">Davom etish</button>
                                 </div>
                             </div>
                         </div>
@@ -761,17 +725,16 @@
 
                 <!-- Quiz Section -->
                 <div id="quiz" class="page-section">
-                    <!-- Quiz content remains the same as your original code -->
-                    <h2 class="mb-4">AI va Robototexnika Testlari <i class="fas fa-brain text-info"></i></h2>
+                    <h2 class="mb-4">AI va Robototexnika Testlari</h2>
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
-                                <div class="card-header bg-info text-white">
+                                <div class="card-header">
                                     <h5 class="mb-0">Test: Arduino Asoslari</h5>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <div id="quizContainer">
-                                        <h6>Arduino boardida nechta digital pinlar bor?</h6>
+                                        <h6 class="mb-4 text-muted-test" >Arduino boardida nechta digital pinlar bor?</h6>
                                         <div class="row g-3">
                                             <div class="col-md-6">
                                                 <div class="quiz-option" onclick="selectAnswer(this, false)">
@@ -795,7 +758,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button class="btn btn-custom" onclick="nextQuestion()">Keyingi Savol</button>
+                                            <button class="btn btn-primary" onclick="nextQuestion()">Keyingi Savol</button>
                                         </div>
                                     </div>
                                 </div>
@@ -803,25 +766,27 @@
                         </div>
                         
                         <div class="col-lg-4">
-                            <div class="card">
+                            <div class="card mt-2">
+                                <div class="card-header">
+                                    <h5 class="mb-0 ">Test Natijalari</h5>
+                                </div>
                                 <div class="card-body text-center">
-                                    <h5>Test Natijalari</h5>
-                                    <div class="row text-center">
+                                    <div class="row text-center mb-3">
                                         <div class="col-6">
                                             <h3 class="text-success">85%</h3>
                                             <p class="text-muted">O'rtacha ball</p>
                                         </div>
                                         <div class="col-6">
-                                            <h3 class="text-info">12</h3>
+                                            <h3 class="text-primary">12</h3>
                                             <p class="text-muted">Yakunlangan testlar</p>
                                         </div>
                                     </div>
                                     <hr>
-                                    <h6>Keyingi Testlar:</h6>
+                                    <h6 class="mb-3">Keyingi Testlar:</h6>
                                     <div class="list-group list-group-flush">
-                                        <div class="list-group-item">Python Asoslari</div>
-                                        <div class="list-group-item">Mashina O'rganishi</div>
-                                        <div class="list-group-item">Robotlar Tarixi</div>
+                                        <div class="list-group-item border-0 px-0">Python Asoslari</div>
+                                        <div class="list-group-item border-0 px-0">Mashina O'rganishi</div>
+                                        <div class="list-group-item border-0 px-0">Robotlar Tarixi</div>
                                     </div>
                                 </div>
                             </div>
@@ -831,15 +796,14 @@
 
                 <!-- Roadmap Section -->
                 <div id="roadmap" class="page-section">
-                    <!-- Roadmap content remains the same as your original code -->
-                    <h2 class="mb-4">O'quv Yo'l Xaritasi <i class="fas fa-map-marked-alt text-success"></i></h2>
+                    <h2 class="mb-4">O'quv Yo'l Xaritasi</h2>
                     <div class="row">
                         <div class="col-12">
                             <div class="roadmap-item completed">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5><i class="fas fa-check-circle text-success me-2"></i>1-bosqich: Robotlar Bilan Tanishish</h5>
-                                        <p class="text-muted">Robotlar haqida asosiy tushunchalar</p>
+                                        <p class="text-muted mb-2">Robotlar haqida asosiy tushunchalar</p>
                                         <span class="badge bg-success">Yakunlandi</span>
                                     </div>
                                     <div class="text-success">
@@ -852,7 +816,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5><i class="fas fa-check-circle text-success me-2"></i>2-bosqich: Arduino Asoslari</h5>
-                                        <p class="text-muted">Mikrokontroyler va dasturlash</p>
+                                        <p class="text-muted mb-2">Mikrokontroyler va dasturlash</p>
                                         <span class="badge bg-success">Yakunlandi</span>
                                     </div>
                                     <div class="text-success">
@@ -864,14 +828,14 @@
                             <div class="roadmap-item current">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h5><i class="fas fa-play-circle text-warning me-2"></i>3-bosqich: Sensorlar va Ma'lumotlar</h5>
-                                        <p class="text-muted">Turli xil sensorlar bilan ishlash</p>
-                                        <div class="progress mt-2" style="width: 200px;">
-                                            <div class="progress-bar bg-warning" style="width: 65%">65%</div>
+                                        <h5><i class="fas fa-play-circle text-danger me-2"></i>3-bosqich: Sensorlar va Ma'lumotlar</h5>
+                                        <p class="text-muted mb-2">Turli xil sensorlar bilan ishlash</p>
+                                        <div class="progress" style="width: 200px;">
+                                            <div class="progress-bar bg-danger" style="width: 65%">65%</div>
                                         </div>
                                     </div>
-                                    <div class="text-warning">
-                                        <i class="fas fa-cog fa-spin fa-2x"></i>
+                                    <div class="text-danger">
+                                        <i class="fas fa-cog fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
@@ -880,7 +844,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5><i class="fas fa-lock text-muted me-2"></i>4-bosqich: AI va Mashina O'rganishi</h5>
-                                        <p class="text-muted">Sun'iy intellekt asoslari</p>
+                                        <p class="text-muted mb-2">Sun'iy intellekt asoslari</p>
                                         <span class="badge bg-secondary">Qulflangan</span>
                                     </div>
                                     <div class="text-muted">
@@ -893,7 +857,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5><i class="fas fa-lock text-muted me-2"></i>5-bosqich: Robot Loyihasi</h5>
-                                        <p class="text-muted">To'liq ishlaydigan robot yaratish</p>
+                                        <p class="text-muted mb-2">To'liq ishlaydigan robot yaratish</p>
                                         <span class="badge bg-secondary">Qulflangan</span>
                                     </div>
                                     <div class="text-muted">
@@ -907,23 +871,20 @@
 
                 <!-- Statistics Section -->
                 <div id="statistics" class="page-section">
-                    <!-- Statistics content remains the same as your original code -->
-                    <h2 class="mb-4">Statistika va Analitika <i class="fas fa-chart-line text-primary"></i></h2>
-                    <div class="row g-4">
+                    <h2 class="mb-4">Statistika va Analitika</h2>
+                    <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
-                                <div class="card-header">
-                                    <h5>Haftalik Faollik</h5>
-                                    <select class="form-select w-auto" style="display: inline-block;">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Haftalik Faollik</h5>
+                                    <select class="form-select w-auto">
                                         <option>Bu hafta</option>
                                         <option>Bu oy</option>
                                         <option>Bu yil</option>
                                     </select>
                                 </div>
                                 <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="activityChart" width="600" height="250"></canvas>
-                                    </div>
+                                    <canvas id="activityChart" width="600" height="250"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -934,7 +895,7 @@
                                     <div class="card text-center">
                                         <div class="card-body">
                                             <h3 class="text-primary">1,250</h3>
-                                            <p class="text-muted">Jami Coinlar</p>
+                                            <p class="text-muted mb-2">Jami Coinlar</p>
                                             <i class="fas fa-coins fa-2x text-warning"></i>
                                         </div>
                                     </div>
@@ -944,7 +905,7 @@
                                     <div class="card text-center">
                                         <div class="card-body">
                                             <h3 class="text-success">45</h3>
-                                            <p class="text-muted">Yakunlangan Topshiriqlar</p>
+                                            <p class="text-muted mb-2">Yakunlangan Topshiriqlar</p>
                                             <i class="fas fa-check-circle fa-2x text-success"></i>
                                         </div>
                                     </div>
@@ -954,56 +915,50 @@
                     </div>
                 </div>
                 
-                <!-- NEW SECTIONS -->
-                
                 <!-- Shop Section -->
                 <div id="shop" class="page-section">
-                    <h2 class="mb-4">Do'kon <i class="fas fa-store text-warning"></i></h2>
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="card">
-                                <div class="card-header bg-warning text-dark">
-                                    <h5 class="mb-0">Mavjud Mahsulotlar</h5>
+                    <h2 class="mb-4">Do'kon</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Mavjud Mahsulotlar</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/300x200/1e3a8a/ffffff?text=Robot+Kit" class="card-img-top" alt="Robot Kit">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Boshlang'ich Robot Kit</h5>
+                                            <p class="card-text">Arduino, sensorlar va motorlar to'plami</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="h5 mb-0 text-warning">750 coin</span>
+                                                <button class="btn btn-primary">Sotib olish</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://via.placeholder.com/300x200/4ECDC4/ffffff?text=Robot+Kit" class="card-img-top" alt="Robot Kit">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Boshlang'ich Robot Kit</h5>
-                                                    <p class="card-text">Arduino, sensorlar va motorlar to'plami</p>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <span class="h5 mb-0 text-warning">750 coin</span>
-                                                        <button class="btn btn-custom">Sotib olish</button>
-                                                    </div>
-                                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/300x200/166534/ffffff?text=AI+Course" class="card-img-top" alt="AI Course">
+                                        <div class="card-body">
+                                            <h5 class="card-title">AI Kursi</h5>
+                                            <p class="card-text">Mashina o'rganishi asoslari kursi</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="h5 mb-0 text-warning">500 coin</span>
+                                                <button class="btn btn-primary">Sotib olish</button>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://via.placeholder.com/300x200/FF6B35/ffffff?text=AI+Course" class="card-img-top" alt="AI Course">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">AI Kursi</h5>
-                                                    <p class="card-text">Mashina o'rganishi asoslari kursi</p>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <span class="h5 mb-0 text-warning">500 coin</span>
-                                                        <button class="btn btn-custom">Sotib olish</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://via.placeholder.com/300x200/2D5016/ffffff?text=Certificate" class="card-img-top" alt="Certificate">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Sertifikat</h5>
-                                                    <p class="card-text">Kursni tugatganingiz uchun sertifikat</p>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <span class="h5 mb-0 text-warning">300 coin</span>
-                                                        <button class="btn btn-custom">Sotib olish</button>
-                                                    </div>
-                                                </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/300x200/dc2626/ffffff?text=Certificate" class="card-img-top" alt="Certificate">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sertifikat</h5>
+                                            <p class="card-text">Kursni tugatganingiz uchun sertifikat</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="h5 mb-0 text-warning">300 coin</span>
+                                                <button class="btn btn-primary">Sotib olish</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1015,58 +970,48 @@
                 
                 <!-- Leaderboard Section -->
                 <div id="leaderboard" class="page-section">
-                    <h2 class="mb-4">Reyting <i class="fas fa-trophy text-warning"></i></h2>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header bg-warning text-dark">
-                                    <h5 class="mb-0">Eng Yaxshi O'quvchilar</h5>
+                    <h2 class="mb-4">Reyting</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Eng Yaxshi O'quvchilar</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">1</div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Aziz Bek</h6>
+                                    <small class="text-muted">1250 coin</small>
                                 </div>
-                                <div class="card-body">
-                                    <div class="leaderboard-item">
-                                        <div class="leaderboard-rank">1</div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-0">Aziz Bek</h6>
-                                            <small class="text-muted">1250 coin</small>
-                                        </div>
-                                        <div class="text-warning">
-                                            <i class="fas fa-crown"></i>
-                                        </div>
-                                    </div>
-                                    <div class="leaderboard-item">
-                                        <div class="leaderboard-rank">2</div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-0">Dilnoza X</h6>
-                                            <small class="text-muted">1100 coin</small>
-                                        </div>
-                                        <div class="text-secondary">
-                                            <i class="fas fa-medal"></i>
-                                        </div>
-                                    </div>
-                                    <div class="leaderboard-item">
-                                        <div class="leaderboard-rank">3</div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-0">Javohir T</h6>
-                                            <small class="text-muted">950 coin</small>
-                                        </div>
-                                        <div class="text-danger">
-                                            <i class="fas fa-medal"></i>
-                                        </div>
-                                    </div>
-                                    <div class="leaderboard-item">
-                                        <div class="leaderboard-rank">4</div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-0">Sevara A</h6>
-                                            <small class="text-muted">800 coin</small>
-                                        </div>
-                                    </div>
-                                    <div class="leaderboard-item">
-                                        <div class="leaderboard-rank">5</div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-0">Otabek S</h6>
-                                            <small class="text-muted">750 coin</small>
-                                        </div>
-                                    </div>
+                                <div class="text-warning">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">2</div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Dilnoza X</h6>
+                                    <small class="text-muted">1100 coin</small>
+                                </div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">3</div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Javohir T</h6>
+                                    <small class="text-muted">950 coin</small>
+                                </div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">4</div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Sevara A</h6>
+                                    <small class="text-muted">800 coin</small>
+                                </div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">5</div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Otabek S</h6>
+                                    <small class="text-muted">750 coin</small>
                                 </div>
                             </div>
                         </div>
@@ -1075,16 +1020,16 @@
                 
                 <!-- Community Section -->
                 <div id="community" class="page-section">
-                    <h2 class="mb-4">Jamiyat <i class="fas fa-users text-info"></i></h2>
+                    <h2 class="mb-4">Jamiyat</h2>
                     <div class="row">
                         <div class="col-md-8">
-                            <div class="card mb-4">
-                                <div class="card-header bg-info text-white">
+                            <div class="card">
+                                <div class="card-header">
                                     <h5 class="mb-0">So'nggi Muhokamalar</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex mb-4">
-                                        <img src="https://ui-avatars.com/api/?name=Dilnoza+X&background=4ECDC4&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
+                                        <img src="https://ui-avatars.com/api/?name=Dilnoza+X&background=166534&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
                                         <div class="flex-grow-1">
                                             <h6>Dilnoza X</h6>
                                             <p class="mb-1">Arduino bilan qanday qilib LEDni boshqarish mumkin?</p>
@@ -1092,15 +1037,15 @@
                                         </div>
                                     </div>
                                     <div class="d-flex mb-4">
-                                        <img src="https://ui-avatars.com/api/?name=Javohir+T&background=FF6B35&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
+                                        <img src="https://ui-avatars.com/api/?name=Javohir+T&background=dc2626&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
                                         <div class="flex-grow-1">
                                             <h6>Javohir T</h6>
-                                            <p class="mb-1">Python da birinchi dasturimni yozdim! 😊</p>
+                                            <p class="mb-1">Python da birinchi dasturimni yozdim!</p>
                                             <small class="text-muted">Kecha • 12 ta izoh</small>
                                         </div>
                                     </div>
                                     <div class="d-flex">
-                                        <img src="https://ui-avatars.com/api/?name=Otabek+S&background=2D5016&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
+                                        <img src="https://ui-avatars.com/api/?name=Otabek+S&background=be185d&color=fff" alt="User" class="rounded-circle me-3" width="50" height="50">
                                         <div class="flex-grow-1">
                                             <h6>Otabek S</h6>
                                             <p class="mb-1">Sensorlardan ma'lumot o'qishda muammo bor...</p>
@@ -1110,35 +1055,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="margin-top: 10px;">
                             <div class="card">
-                                <div class="card-header bg-success text-white">
-                                    <h5 class="mb-0">Yangi Do'stlar Qo'shiling</h5>
+                                <div class="card-header">
+                                    <h5 class="mb-0">Yangi Do'stlar</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="https://ui-avatars.com/api/?name=Gulnora+R&background=9C27B0&color=fff" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                        <img src="https://ui-avatars.com/api/?name=Gulnora+R&background=1e3a8a&color=fff" alt="User" class="rounded-circle me-3" width="40" height="40">
                                         <div class="flex-grow-1">
                                             <h6 class="mb-0">Gulnora R</h6>
                                             <small class="text-muted">Yangi a'zo</small>
                                         </div>
-                                        <button class="btn btn-sm btn-custom">Do'st</button>
+                                        <button class="btn btn-primary btn-sm">Do'st</button>
                                     </div>
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="https://ui-avatars.com/api/?name=Farhod+I&background=FFD23F&color=000" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                        <img src="https://ui-avatars.com/api/?name=Farhod+I&background=166534&color=fff" alt="User" class="rounded-circle me-3" width="40" height="40">
                                         <div class="flex-grow-1">
                                             <h6 class="mb-0">Farhod I</h6>
-                                            <small class="text-muted">AI bo'yicha mutaxassis</small>
+                                            <small class="text-muted">AI mutaxassisi</small>
                                         </div>
-                                        <button class="btn btn-sm btn-custom">Do'st</button>
+                                        <button class="btn btn-primary btn-sm">Do'st</button>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <img src="https://ui-avatars.com/api/?name=Zarina+K&background=26C6DA&color=fff" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                        <img src="https://ui-avatars.com/api/?name=Zarina+K&background=dc2626&color=fff" alt="User" class="rounded-circle me-3" width="40" height="40">
                                         <div class="flex-grow-1">
                                             <h6 class="mb-0">Zarina K</h6>
-                                            <small class="text-muted">Robototexnika ishqibozi</small>
+                                            <small class="text-muted">Robot ishqibozi</small>
                                         </div>
-                                        <button class="btn btn-sm btn-custom">Do'st</button>
+                                        <button class="btn btn-primary btn-sm">Do'st</button>
                                     </div>
                                 </div>
                             </div>
@@ -1149,38 +1094,32 @@
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div class="notification-toast" id="notificationToast">
-        <i class="fas fa-bell"></i>
-        <div>
-            <h6 class="mb-1" id="toastTitle">Bildirishnoma</h6>
-            <p class="mb-0 small" id="toastMessage">Bu sizning bildirishnomangiz</p>
-        </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Page Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.nav-link, [data-page]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetPage = this.getAttribute('data-page');
                 
+                if (!targetPage) return;
+                
                 // Update active nav link
                 document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
+                document.querySelector(`[data-page="${targetPage}"].nav-link`)?.classList.add('active');
                 
                 // Show target page
                 document.querySelectorAll('.page-section').forEach(section => {
                     section.classList.remove('active');
                 });
-                document.getElementById(targetPage).classList.add('active');
+                document.getElementById(targetPage)?.classList.add('active');
             });
         });
 
         // Profile Dropdown
-        document.querySelector('.profile-img').addEventListener('click', function() {
+        document.querySelector('.profile-img')?.addEventListener('click', function(e) {
+            e.preventDefault();
             document.getElementById('profileDropdown').classList.toggle('show');
         });
 
@@ -1188,7 +1127,7 @@
         window.addEventListener('click', function(e) {
             if (!e.target.matches('.profile-img')) {
                 const dropdown = document.getElementById('profileDropdown');
-                if (dropdown.classList.contains('show')) {
+                if (dropdown?.classList.contains('show')) {
                     dropdown.classList.remove('show');
                 }
             }
@@ -1196,19 +1135,24 @@
 
         // Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('change', function() {
+        themeToggle?.addEventListener('change', function() {
             if (this.checked) {
                 document.body.classList.add('dark-mode');
+                document.documentElement.style.setProperty('--txt-color', '#fff');
+                document.documentElement.style.setProperty('--txt-color-test', '#e0e0e0');
                 localStorage.setItem('theme', 'dark');
             } else {
                 document.body.classList.remove('dark-mode');
+                document.documentElement.style.setProperty('--txt-color', '#000');
+                document.documentElement.style.setProperty('--txt-color-test', '#222');
+
                 localStorage.setItem('theme', 'light');
             }
         });
 
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'dark' && themeToggle) {
             document.body.classList.add('dark-mode');
             themeToggle.checked = true;
         }
@@ -1233,15 +1177,14 @@
         }
 
         function nextQuestion() {
-            // In a real app, this would load the next question
-            showNotification("Yangi savol", "Keyingi savolga o'tildi!");
+            alert("Keyingi savolga o'tildi!");
         }
 
         // Task Functionality
         function startTask(taskId) {
-            showNotification("Topshiriq boshlandi", "Topshiriqni bajaryapsiz. Omad!");
+            alert("Topshiriq boshlandi!");
             
-            // Simulate task completion after 3 seconds
+            // Simulate task completion
             setTimeout(() => {
                 const currentCoins = parseInt(document.getElementById('coinBalance').textContent);
                 let newCoins = currentCoins;
@@ -1251,74 +1194,54 @@
                 if (taskId === 3) newCoins += 100;
                 
                 document.getElementById('coinBalance').textContent = newCoins;
-                showNotification("Topshiriq yakunlandi", "Siz " + (newCoins - currentCoins) + " coin qo'lga kiritdingiz!");
-            }, 3000);
-        }
-
-        // Notification System
-        function showNotification(title, message) {
-            const toast = document.getElementById('notificationToast');
-            document.getElementById('toastTitle').textContent = title;
-            document.getElementById('toastMessage').textContent = message;
-            
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+                alert("Topshiriq yakunlandi! Siz " + (newCoins - currentCoins) + " coin qo'lga kiritdingiz!");
+            }, 2000);
         }
 
         // Initialize Chart
         document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('activityChart').getContext('2d');
-            const chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Dush', 'Sesh', 'Chor', 'Pay', 'Jum', 'Shan', 'Yak'],
-                    datasets: [{
-                        label: 'Faollik darajasi',
-                        data: [30, 45, 40, 60, 75, 65, 90],
-                        backgroundColor: 'rgba(255, 107, 53, 0.2)',
-                        borderColor: 'rgba(255, 107, 53, 1)',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointBackgroundColor: 'rgba(255, 107, 53, 1)',
-                        pointRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
+            const ctx = document.getElementById('activityChart');
+            if (ctx) {
+                new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Dush', 'Sesh', 'Chor', 'Pay', 'Jum', 'Shan', 'Yak'],
+                        datasets: [{
+                            label: 'Faollik darajasi',
+                            data: [30, 45, 40, 60, 75, 65, 90],
+                            backgroundColor: 'rgba(30, 58, 138, 0.1)',
+                            borderColor: '#1e3a8a',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            pointBackgroundColor: '#1e3a8a',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: {
+                                    color: '#e5e7eb'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: '#e5e7eb'
+                                }
+                            }
                         }
                     }
-                }
-            });
-        });
-
-        // Card click navigation
-        document.querySelectorAll('.task-card, .quiz-card, .roadmap-card, .stats-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const targetPage = this.getAttribute('data-page');
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(nav => {
-                    if (nav.getAttribute('data-page') === targetPage) {
-                        nav.classList.add('active');
-                    } else {
-                        nav.classList.remove('active');
-                    }
                 });
-                
-                // Show target page
-                document.querySelectorAll('.page-section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(targetPage).classList.add('active');
-            });
+            }
         });
     </script>
 </body>
