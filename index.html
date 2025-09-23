@@ -25,7 +25,7 @@
             --light-gray: #ebf0f5;
             --dark-gray: #1f2937;
             --border-gray: #e5e7eb;
-            --txt-color: #fff;
+            --txt-color: #222;
             --txt-color-test: #222;
         }
 
@@ -103,6 +103,7 @@
             margin-bottom: 0.25rem;
             text-decoration: none;
             display: flex;
+            border: 2px solid #90909022;
             align-items: center;
             transition: all 0.2s ease;
             font-weight: 500;
@@ -316,13 +317,6 @@
             background-color: (--text-color-test-var)
         }
 
-        /* Profile dropdown */
-        .profile-dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 1rem;
-        }
-
         .profile-img {
             width: 40px;
             height: 40px;
@@ -332,15 +326,12 @@
         }
 
         .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
+            right: 20px;
             background-color: white;
             min-width: 200px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
-            z-index: 1000;
             overflow: hidden;
         }
 
@@ -359,6 +350,8 @@
 
         .show {
             display: block;
+            z-index: 6000 !important;
+
         }
 
         /* Theme toggle */
@@ -432,9 +425,9 @@
 
         /* Notification badge */
         .notification-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
+            
+            margin-left: 2px;
+            margin-bottom: 3px;
             background: var(--deep-red);
             color: white;
             border-radius: 50%;
@@ -616,20 +609,10 @@
                     <span class="slider"></span>
                 </label>
 
-                <div class="profile-dropdown">
-                    <img src="https://ui-avatars.com/api/?name=Aziz+Bek&background=1e3a8a&color=fff" alt="Profile"
-                        class="profile-img">
-                    <div class="dropdown-content" id="profileDropdown">
-                        <a href="#"><i class="fas fa-user me-2"></i> Profil</a>
-                        <a href="#"><i class="fas fa-cog me-2"></i> Sozlamalar</a>
-                        <a href="#" style="position: relative;"><i class="fas fa-bell me-2"></i> Bildirishnomalar <span
-                                class="notification-badge">3</span></a>
-                        <a href="#"><i class="fas fa-trophy me-2"></i> Yutuqlar</a>
-                        <a href="#"><i class="fas fa-sign-out-alt me-2"></i> Chiqish</a>
-                    </div>
-                </div>
+             
             </div>
         </div>
+         
     </nav>
 
     <div class="container-fluid mt-4">
@@ -663,6 +646,7 @@
                         <a class="nav-link" href="#" data-page="community">
                             <i class="fas fa-users"></i>Jamiyat
                         </a>
+                        <a href="#" class="nav-link" data-page="settings"><i class="fas fa-cog me-2"></i>Sozlamalar</a>
                     </nav>
                 </div>
             </div>
@@ -799,7 +783,17 @@
                         </div>
                     </div>
                 </div>
-
+                  <!-- settings -->
+                   <div class="profile-dropdown page-section show" id="settings">
+                    <div class="dropdown-content" id="profileDropdown">
+                        <a href="#"><i class="fas fa-user me-2"></i> Profil</a>
+                        <a href="#"><i class="fas fa-cog me-2"></i> Sozlamalar</a>
+                        <a href="#" class="d-flex" style=" width: auto;"><i class="fas fa-bell me-2"></i> <span>Bildirishnomalar</span> <span
+                                class="notification-badge">3</span></a>
+                        <a href="#"><i class="fas fa-trophy me-2"></i> Yutuqlar</a>
+                        <a href="#"><i class="fas fa-sign-out-alt me-2"></i> Chiqish</a>
+                    </div>
+          </div>
                 <!-- Tasks Section -->
                 <div id="tasks" class="page-section">
                     <h2 class="mb-4">Kunlik Topshiriqlar</h2>
@@ -1280,20 +1274,7 @@
         });
 
         // Profile Dropdown
-        document.querySelector('.profile-img')?.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.getElementById('profileDropdown').classList.toggle('show');
-        });
-
-        // Close dropdown when clicking outside
-        window.addEventListener('click', function (e) {
-            if (!e.target.matches('.profile-img')) {
-                const dropdown = document.getElementById('profileDropdown');
-                if (dropdown?.classList.contains('show')) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        });
+       
 
         // Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
