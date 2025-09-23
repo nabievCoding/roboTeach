@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoboKids - Robototexnika va AI Akademiyasi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+    </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
@@ -479,9 +482,25 @@
                 font-size: 0.75rem;
             }
 
-            .btntopshiriq .btn {
-                width: 100%;
+            .btntopshiriq {
+                margin-bottom: 0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 padding: 0;
+                width: 150px;
+                margin-right: 0;
+            }
+
+            .btntopshiriq .badge {
+                padding: 5px;
+                margin: 0 0 5px 0;
+            }
+
+            .btntopshiriq .btn {
+                margin-top: 8px;
+                width: 100%;
+                padding: 5px 2px;
                 margin: 0;
             }
         }
@@ -520,15 +539,68 @@
         .dark-mode .leaderboard-item {
             background-color: #4b5563;
         }
+
+        .nav-head {
+            position: relative;
+            background-color: #2e7e74;
+            overflow: hidden;
+        }
+
+        .nav-head::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #4acabb71;
+            z-index: 0;
+            top: -30px;
+            left: -150px;
+        }
+
+        .nav-head::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            right: 33%;
+            background-color: #4acabb93;
+            z-index: 0;
+            top: 0;
+        }
+
+        .nav-head .span1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #4acabb71;
+            z-index: 0;
+            top: 20px;
+            right: 40%;
+        }
+
+        .nav-head .span2 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #4acabb46;
+            z-index: 0;
+            top: -50%;
+            right: 35%;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-robot me-2"></i>USTOZJON
+    <nav class="nav-head navbar navbar-expand-lg">
+        <span class="span1"></span> <span class="span2"></span>
+        <div class="container" style="z-index: 5;">
+            <a class="d-flex justify-content-center align-items-center navbar-brand" style="gap:5px" href="#">
+                <img src="./aa.png" alt="xato" width="40rem" style="margin-bottom: 5px;"><span style="font-family: 'SUSE Mono', sans-serif;color:#fff; font-weight: 700;">USTOZJON</span>
             </a>
 
             <div class="d-flex align-items-center">
@@ -743,8 +815,8 @@
                                             <h6>Arduino LED Boshqarish</h6>
                                             <p class="text-muted mb-0 small">LEDni yoqish va o'chirish kodini yozing</p>
                                         </div>
-                                        <div class="btntopshiriq dd-flex justify-content-between align-items-center">
-                                            <p class="badge bg-success ">+50 coin</p>
+                                        <div class="btntopshiriq d-flex justify-content-center align-items-center">
+                                            <p class="badge bg-warning me-2">+50 coin</p>
                                             <button class="btn btn-primary " onclick="startTask(1)">Boshlash</button>
                                         </div>
                                     </div>
@@ -755,8 +827,8 @@
                                             <p class="text-muted mb-0 small">Ultrasonic sensor bilan masofani o'lchash
                                             </p>
                                         </div>
-                                        <div class="btntopshiriq dd-flex justify-content-between align-items-center">
-                                            <p class="badge bg-warning me-2">+75 coin</p>
+                                        <div class="btntopshiriq d-flex justify-content-center align-items-center">
+                                            <p class="badge bg-success me-2">+75 coin</p>
                                             <button class="btn btn-primary btn-sm"
                                                 onclick="startTask(2)">Boshlash</button>
                                         </div>
@@ -767,8 +839,8 @@
                                             <h6>AI Tasvir Aniqlash</h6>
                                             <p class="text-muted mb-0 small">Python bilan obyektlarni aniqlash</p>
                                         </div>
-                                        <div class="btntopshiriq dd-flex justify-content-between align-items-center">
-                                            <p class="badge bg-primary me-2">+100 coin</p>
+                                        <div class="btntopshiriq d-flex justify-content-center align-items-center">
+                                            <p class="badge bg-success me-2">+100 coin</p>
                                             <button class="btn btn-primary btn-sm"
                                                 onclick="startTask(3)">Boshlash</button>
                                         </div>
